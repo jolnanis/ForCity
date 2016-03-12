@@ -22,17 +22,6 @@ public class TestJavaML {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-        int sp = 10;
-        int exp = 1000;
-        Dataset data = FileHandler.loadDataset(new File("iris_data_set/iris.csv"),4,",");
-        Tester testeur = new Tester(data);
-        double avg = 0;
-        for (int i = 0; i<10; i++){
-            for (int k = 0;k<exp;k++){
-                avg += testeur.teste((i+1)*15-1) /exp;
-            }
-            System.out.println(avg);
-            avg = 0;
-        }
+
     }
 }
