@@ -6,10 +6,7 @@
 package testjavaml;
  
 
-import java.io.File;
 import java.io.IOException;
-import net.sf.javaml.core.Dataset;
-import net.sf.javaml.tools.data.FileHandler;
 
 /**
  *
@@ -22,6 +19,6 @@ public class TestJavaML {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-
+        Comparaison.comp();
     }
 }
