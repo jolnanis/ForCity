@@ -19,6 +19,8 @@ public class TestJavaML {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-        Comparaison.comp();
+        DataBase.init();
+        
+        DataBase.shut();
     }
 }
