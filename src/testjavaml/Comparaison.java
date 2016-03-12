@@ -18,7 +18,7 @@ public class Comparaison {
     public static void comp() throws IOException{
                 int sp = 10;
         int exp = 1000;
-        Dataset data = FileHandler.loadDataset(new File("iris_data_set/iris.csv"),4,",");
+        Dataset data = FileHandler.loadDataset(new File("data/iris_data_set/iris.csv"),4,",");
         Tester testeur = new Tester(data);
         double avg = 0;
         for (int i = 0; i<10; i++){
