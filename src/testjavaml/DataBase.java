@@ -27,7 +27,7 @@ public class DataBase {
             Logger.getLogger(DataBase.class.getName()).log(Level.SEVERE, null, e);
         }
         try {
-            con = DriverManager.getConnection(dbURL, "nico", "2-ClEt0H");
+            con = DriverManager.getConnection(dbURL, "nico", "password");
         } catch (SQLException ex) {
             System.err.println("SQLException");
             System.err.println(ex.getMessage());
