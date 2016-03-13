@@ -6,11 +6,8 @@
 package testjavaml;
 
 
-import java.sql.Connection;
-import java.sql.Driver;
-import java.sql.DriverManager;
+
 import java.sql.*;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class DataBase {
     private static Connection con;
-    private static final String dbURL = "jdbc:postgresql://localhost/test";    
+    private static final String dbURL = "jdbc:postgresql:test";    
     public static void init(){
         try {
             Class.forName("org.postgresql.Driver");
