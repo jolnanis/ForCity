@@ -10,6 +10,11 @@ package testjavaml;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import net.sf.javaml.core.Dataset;
+import net.sf.javaml.core.DefaultDataset;
+import net.sf.javaml.core.DenseInstance;
+import net.sf.javaml.core.Instance;
+import weka.core.SparseInstance;
 
 /**
  *
@@ -18,6 +23,10 @@ import java.util.logging.Logger;
 public class DataBase {
     private static Connection con;
     private static final String dbURL = "jdbc:postgresql:test";    
+
+    /**
+     *
+     */
     public static void init(){
         try {
             Class.forName("org.postgresql.Driver");
@@ -34,6 +43,10 @@ public class DataBase {
             Logger.getLogger(DataBase.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    /**
+     *
+     */
     public static void shut(){
         try {
             con.close();
@@ -46,5 +59,31 @@ public class DataBase {
         } catch (SQLException ex) {
             Logger.getLogger(DataBase.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    /**
+     *
+     * @return
+     */
+    public static Dataset load(){
+            Dataset data = new DefaultDataset();
+            
+            double[] tmpArray = new double[] {0,0,0,0};
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM iris_dataset");
+            while (rs.next()){
+                tmpArray[0] = rs.getDouble(0);
+                tmpArray[1] = rs.getDouble(1);
+                tmpArray[2] = rs.getDouble(2);
+                tmpArray[3] = rs.getDouble(3);
+                Instance tmpInstance = new DenseInstance(tmpArray, rs.getString(4));
+                data.add(tmpInstance);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DataBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    return data;
     }
 }
