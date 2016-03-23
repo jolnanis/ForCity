@@ -26,7 +26,7 @@ public class Tester {
     
     
     
-    public double teste(int sp) throws IOException{
+    public double teste(int sp) {
         Sampling s=Sampling.SubSampling;
         Pair<Dataset, Dataset> datas = s.sample(data, sp);
         Classifier c = new RandomForest(10);

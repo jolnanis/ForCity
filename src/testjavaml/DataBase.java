@@ -73,10 +73,10 @@ public class DataBase {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM iris_dataset");
             while (rs.next()){
-                tmpArray[1] = rs.getDouble(0);
-                tmpArray[2] = rs.getDouble(1);
-                tmpArray[3] = rs.getDouble(2);
-                tmpArray[4] = rs.getDouble(3);
+                tmpArray[0] = rs.getDouble(1);
+                tmpArray[1] = rs.getDouble(2);
+                tmpArray[2] = rs.getDouble(3);
+                tmpArray[3] = rs.getDouble(4);
                 Instance tmpInstance = new DenseInstance(tmpArray, rs.getString(4));
                 data.add(tmpInstance);
             }

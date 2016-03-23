@@ -7,6 +7,7 @@ package testjavaml;
  
 
 import java.io.IOException;
+import net.sf.javaml.core.Dataset;
 
 /**
  *
@@ -16,11 +17,12 @@ public class TestJavaML {
 
     /**
      * @param args the command line arguments
-     * @throws java.io.IOException
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         DataBase.init();
-        
+        Dataset data = DataBase.load();
+        Tester test = new Tester(data);
+        System.out.println(test.teste(12));
         DataBase.shut();
     }
 }
